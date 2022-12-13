@@ -1,5 +1,4 @@
 .wrap {
-  // height: 722px;
   height: 100vh;
   padding: 86px 0;
   display: flex;
@@ -13,6 +12,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgb(39 39 39 / 85%);
+
+  transition: height .4s;
 
   &>* {
     color: white;
