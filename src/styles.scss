@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import './reset';
+
+body::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 0%;
+    background-color: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: RGB(232, 54, 35);
+    // outline: 1px solid slategrey;
+}

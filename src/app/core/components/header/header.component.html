@@ -1,0 +1,19 @@
+<div class="wrap">
+  <ng-template #burgerRef></ng-template>
+  <div class="burger" (click)="toggleBurgerMenu()" [ngClass]="{'active': isOpenBurgerMenu}">
+    <span></span>
+    <span></span>
+    <div><span></span></div>
+  </div>
+  <div class="logo">
+    <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
+  </div>
+  <h2 class="title">Найсмачніші суші <br /> у твоєму місті</h2>
+  <div class="description">
+    обирайте страви, які вам подобаються <br />
+    про все інше ми подбаємо
+  </div>
+  <div class="arrow">
+    <ion-icon name="chevron-down-outline"></ion-icon>
+  </div>
+</div>

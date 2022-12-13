@@ -16,13 +16,22 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "es2021",
+    "module": "es2020",
     "useDefineForClassFields": false,
+    "types": [
+      "@angular/localize"
+    ],
     "lib": [
-      "ES2022",
+      "es2021",
       "dom"
-    ]
+    ],
+    "paths": {
+      // "@interfaces": ["./src/app/interfaces"],
+      "@interfaces/*": [
+        "./src/app/interfaces/*"
+      ],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
