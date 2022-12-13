@@ -34,6 +34,9 @@
       "@features/*": [
         "./src/app/features/*"
       ],
+      "@componets/*": [
+        "./src/app/core/components/*"
+      ],
     }
   },
   "angularCompilerOptions": {

@@ -1,7 +1,12 @@
-<app-header (moveViewToItems)="moveViewToItems()"></app-header>
+<!-- * Header * -->
+<app-header 
+	(moveViewToItems)="moveViewToItems()">
+</app-header>
 
+<!-- * Content * -->
 <div #suggestedBlock>
 	<router-outlet></router-outlet>
 </div>
 
+<!-- * Footer * -->
 <app-footer></app-footer>

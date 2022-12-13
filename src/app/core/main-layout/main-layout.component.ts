@@ -10,8 +10,6 @@ export class MainLayoutComponent {
   @ViewChild('suggestedBlock') suggestedBlock!: ElementRef;
 
   public moveViewToItems(): void {
-    console.log();
     this.suggestedBlock.nativeElement.scrollIntoView();
-    
   }
 }
