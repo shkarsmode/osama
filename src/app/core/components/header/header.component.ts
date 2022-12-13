@@ -22,9 +22,8 @@ export class HeaderComponent implements OnInit {
 
   public toggleBurgerMenu(): void {
     this.isOpenBurgerMenu = !this.isOpenBurgerMenu;
-    const toggleFuncToRun = (
-      this.isOpenBurgerMenu ? this.openBurgerMenu : this.closeBurgerMenu
-    ).bind(this);
+    const toggleFuncToRun = 
+      (this.isOpenBurgerMenu ? this.openBurgerMenu : this.closeBurgerMenu).bind(this);
     toggleFuncToRun();
   }
 
