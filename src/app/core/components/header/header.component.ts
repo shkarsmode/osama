@@ -1,7 +1,6 @@
 import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { BurgerMenuComponent } from '@features/burger-menu';
 
-
-import { BurgerMenuComponent } from 'src/app/features/burger-menu/burger-menu.component';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   isOpenBurgerMenu: boolean = false;
 
-  @ViewChild('burgerRef', { read: ViewContainerRef, static: true}) private burgerRef!: ViewContainerRef;
+  @ViewChild('burgerRef', { read: ViewContainerRef }) private burgerRef!: ViewContainerRef;
   private componentRef!: ComponentRef<BurgerMenuComponent>;
 
   
