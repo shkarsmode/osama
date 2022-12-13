@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-main-layout',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class MainLayoutComponent {
 
+  @ViewChild('suggestedBlock') suggestedBlock!: ElementRef;
+
+  public moveViewToItems(): void {
+    console.log();
+    this.suggestedBlock.nativeElement.scrollIntoView();
+    
+  }
 }
