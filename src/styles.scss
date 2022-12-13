@@ -4,6 +4,11 @@
 @import 'bootstrap/scss/bootstrap';
 @import './reset';
 
+body {
+    position: relative !important;
+    overflow-y: scroll !important;
+}
+
 body::-webkit-scrollbar {
     width: 7px;
     border-radius: 0%;

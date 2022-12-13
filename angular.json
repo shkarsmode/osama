@@ -36,7 +36,6 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/ionicons/dist/scss/ionicons.scss",
               {
                 "input": "node_modules/@ionic/angular/css/core.css"
               },
