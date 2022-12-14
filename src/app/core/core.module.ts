@@ -10,6 +10,7 @@ import {
   HeaderComponent,
 } from './components';
 import { SharedModule } from '../shared/shared.module';
+import { ShoppingComponent } from './components/shopping/shopping.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SharedModule } from '../shared/shared.module';
     HeaderComponent,
     FooterComponent,
     GreetingComponent,
+    ShoppingComponent,
   ],
   imports: [
     CommonModule, 

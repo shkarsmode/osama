@@ -6,34 +6,64 @@
     width: 100%;
     height: 100vh;
     background-color: black;
-    padding: 86px 80px;
+    padding: 86px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 102;
     opacity: 0;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        border-radius: 0%;
+        background-color: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: RGB(232, 54, 35);
+        // outline: 1px solid slategrey;
+    }
 
     animation: animFlow .5s forwards;
 
     .wrap-city {
-        height: 150px;
-        overflow-y: scroll;
-        padding: 0 50px;
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 200px));
+        justify-items: center;
+        align-items: stretch;
+        justify-content: center;
+        column-gap: 15px;
+        row-gap: 15px;
 
-        &>div {
-            color: white;
+        .letter {
+            color: #de0000;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            border-bottom: 1px dotted #de0000;
         }
 
-        &::-webkit-scrollbar {
-            width: 7px;
-            border-radius: 0%;
-            background-color: #fff;
+        .cities {
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+
+            div {
+                cursor: pointer;
+                width: 100%;
+                color: white;
+                font-weight: 300;
+                font-size: 15px;
+                transition: .5s;
+                padding-bottom: 5px;
+
+                &:hover {
+                    color: #de0000;
+                }
+            }
         }
 
-        &::-webkit-scrollbar-thumb {
-            background-color: RGB(232, 54, 35);
-            // outline: 1px solid slategrey;
-        }
     }
 
     .logo {
