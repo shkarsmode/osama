@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { IonicModule } from '@ionic/angular';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
@@ -10,6 +9,7 @@ import {
   FooterComponent,
   HeaderComponent,
 } from './components';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,9 +19,14 @@ import {
     FooterComponent,
     GreetingComponent,
   ],
-  imports: [CommonModule, NgbModule, CoreRoutingModule, IonicModule.forRoot()],
+  imports: [
+    CommonModule, 
+    NgbModule, 
+    CoreRoutingModule, 
+    SharedModule
+  ],
   exports: [CoreRoutingModule],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
 })
-export class CoreModule {}
+export class CoreModule { }

@@ -8,11 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BurgerMenuComponent } from '@features/burger-menu';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BurgerMenuComponent
+    BurgerMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +22,7 @@ import { BurgerMenuComponent } from '@features/burger-menu';
     FormsModule,
     ReactiveFormsModule,
     CoreModule,
-    IonicModule.forRoot(),
+    SharedModule
   ],
   providers: [],
   entryComponents: [BurgerMenuComponent],
