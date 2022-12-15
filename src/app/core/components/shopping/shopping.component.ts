@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subject, Subscription } from 'rxjs';
-import { ItemsService } from 'src/app/shared/services/items.service';
+
+import { ItemsService } from '@services';
+
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-shopping',
@@ -19,6 +21,10 @@ export class ShoppingComponent implements OnInit {
     this.citySubject = this.itemsService.citySubject ?? null;
   }
 
+  /**
+   * ! Just notations for subscribe
+   */
+
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
       console.log('shopping', params['tag']);
@@ -30,7 +36,6 @@ export class ShoppingComponent implements OnInit {
 
 
   private cityName() {
-    // return this.route.snapshot.paramMap.get('city');
     this.route.params.subscribe(params => {
       const city = params['city'];
       this.citySubject.next(city);

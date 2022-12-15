@@ -1,11 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable, Optional } from "@angular/core";
+import { ICategory, IInfoCity, DtoCategoryResponse } from "@interfaces";
 
 import { map, Observable, Subject } from "rxjs";
 import { BASE_URL } from "src/environment/variables";
-import { DtoCategoryResponse } from "../interfaces/DtoCategoryResponse";
-import { ICategory } from "../interfaces/ICategory";
-import { IInfoCity } from "../interfaces/IInfoCity";
+
 
 @Injectable()
 export class ItemsService {
@@ -33,10 +32,7 @@ export class ItemsService {
     }
 
     getInfoByCity(city: string): Observable<IInfoCity> {
-        return this.http.get<any>(`${this.basePath}/cities/${city}.json`)
-            .pipe(map((response: any) => {
-                return response;
-            }))
+        return this.http.get<IInfoCity>(`${this.basePath}/cities/${city}.json`);
     }
 
 

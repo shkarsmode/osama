@@ -27,9 +27,18 @@
       "dom"
     ],
     "paths": {
-      // "@interfaces": ["./src/app/interfaces"],
+      "@interfaces": ["./src/app/shared/interfaces"],
       "@interfaces/*": [
-        "./src/app/interfaces/*"
+        "./src/app/shared/interfaces/*"
+      ],
+      "@services": [
+        "./src/app/shared/services"
+      ],
+      "@services/*": [
+        "./src/app/shared/services/*"
+      ],
+      "@features": [
+        "./src/app/features"
       ],
       "@features/*": [
         "./src/app/features/*"

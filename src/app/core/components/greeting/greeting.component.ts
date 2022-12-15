@@ -1,9 +1,9 @@
 import { Component, ComponentRef, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute, Params, Route, Router } from '@angular/router';
-import { ChooseCityComponent } from '@features/choose-city/choose-city.component';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ChooseCityComponent } from '@features';
+import { ICategory } from '@interfaces';
+import { ItemsService } from '@services';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { ICategory } from 'src/app/shared/interfaces/ICategory';
-import { ItemsService } from 'src/app/shared/services/items.service';
 
 @Component({
     selector: 'app-greeting',

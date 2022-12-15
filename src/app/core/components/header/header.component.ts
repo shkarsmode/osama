@@ -1,10 +1,20 @@
-import { Location } from '@angular/common';
-import { Component, ComponentRef, OnInit, Output, ViewChild, ViewContainerRef, EventEmitter, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { BurgerMenuComponent } from '@features/burger-menu';
-import { Subject, Subscription } from 'rxjs';
-import { IInfoCity } from 'src/app/shared/interfaces/IInfoCity';
-import { ItemsService } from 'src/app/shared/services/items.service';
+import { 
+    Component, 
+    ComponentRef, 
+    OnInit, Output, 
+    ViewChild, 
+    ViewContainerRef, 
+    EventEmitter, 
+    OnDestroy 
+} from '@angular/core';
+import { Router } from '@angular/router';
+
+import { BurgerMenuComponent } from '@features';
+import { IInfoCity } from '@interfaces';
+import { ItemsService } from '@services';
+
+import { Subscription } from 'rxjs';
+
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IInfoCity } from 'src/app/shared/interfaces/IInfoCity';
+import { IInfoCity } from '@interfaces';
 
 @Component({
   selector: 'app-social',
