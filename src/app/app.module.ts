@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BurgerMenuComponent } from '@features/burger-menu';
 import { SharedModule } from './shared/shared.module';
+import { SocialComponent } from './features/social/social.component';
+import { BurgerIconComponent } from './features/burger-icon/burger-icon.component';
 
 @NgModule({
   declarations: [

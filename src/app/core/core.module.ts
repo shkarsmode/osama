@@ -11,6 +11,8 @@ import {
 } from './components';
 import { SharedModule } from '../shared/shared.module';
 import { ShoppingComponent } from './components/shopping/shopping.component';
+import { SocialComponent } from '@features/social/social.component';
+import { BurgerIconComponent } from '@features/burger-icon/burger-icon.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { ShoppingComponent } from './components/shopping/shopping.component';
     FooterComponent,
     GreetingComponent,
     ShoppingComponent,
+    SocialComponent,
+    BurgerIconComponent
   ],
   imports: [
     CommonModule, 

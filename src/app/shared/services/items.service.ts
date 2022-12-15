@@ -1,15 +1,17 @@
 import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable, Optional } from "@angular/core";
 
-import { map, Observable } from "rxjs";
+import { map, Observable, Subject } from "rxjs";
 import { BASE_URL } from "src/environment/variables";
 import { DtoCategoryResponse } from "../interfaces/DtoCategoryResponse";
 import { ICategory } from "../interfaces/ICategory";
+import { IInfoCity } from "../interfaces/IInfoCity";
 
 @Injectable()
 export class ItemsService {
 
     private basePath = '/';
+    public citySubject: Subject<string | null> = new Subject();
 
     constructor(
         private http: HttpClient,
@@ -27,6 +29,13 @@ export class ItemsService {
                         ...response[id]    
                     }
                 })
+            }))
+    }
+
+    getInfoByCity(city: string): Observable<IInfoCity> {
+        return this.http.get<any>(`${this.basePath}/cities/${city}.json`)
+            .pipe(map((response: any) => {
+                return response;
             }))
     }
 

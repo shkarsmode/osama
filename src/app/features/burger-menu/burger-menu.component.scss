@@ -84,6 +84,7 @@
 .closing {
   box-shadow: 0px 0px 0px 0px #ffffff00;
   animation: animClosingMenu .8s .3s forwards;
+  pointer-events: none;
 
   .nav {
     transform: translateY(80px);

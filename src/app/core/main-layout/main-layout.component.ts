@@ -12,4 +12,12 @@ export class MainLayoutComponent {
   public moveViewToItems(): void {
     this.suggestedBlock.nativeElement.scrollIntoView();
   }
+
+  public scrollToTopSide(event: Event): void {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }

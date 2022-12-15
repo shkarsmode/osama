@@ -5,7 +5,7 @@
 
 <!-- * Content * -->
 <div #suggestedBlock>
-	<router-outlet></router-outlet>
+	<router-outlet (activate)="scrollToTopSide($event)"></router-outlet>
 </div>
 
 <!-- * Footer * -->

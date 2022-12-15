@@ -1,18 +1,41 @@
-<div class="wrap">
+<div class="wrap" [ngStyle]="{ 'background-image': 'url(' + (info?.img ?? img) + ')'}">
   <ng-template #burgerRef></ng-template>
-  <div class="burger" (click)="toggleBurgerMenu()" [ngClass]="{'active': isOpenBurgerMenu}">
+
+  <burger-icon 
+    class="burger" 
+    (click)="toggleBurgerMenu()" 
+    [active]="isOpenBurgerMenu"
+  >
+  </burger-icon>
+
+  <!-- <div class="burger" (click)="toggleBurgerMenu()" [ngClass]="{'active': isOpenBurgerMenu}">
     <span></span>
     <span></span>
-    <div><span></span></div>
-  </div>
-  <div class="logo">
+    <div>
+      <span></span>
+    </div>
+  </div> -->
+
+  <div class="logo" (click)="moveToGreetingComponent()">
     <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
   </div>
-  <h1 class="title">Найсмачніші суші <br /> у твоєму місті</h1>
+
+  <app-social 
+    class="social"
+    *ngIf="info"
+    [info]="info"
+  ></app-social>
+
+  <h1 class="title" *ngIf="!info; else elseTitle">Найсмачніші суші <br /> у твоєму місті</h1>
+  <ng-template #elseTitle>
+    <h1 class="title">Доставка суші у місті {{ info?.city }}</h1>
+  </ng-template>
+  
   <div class="description">
     обирайте страви, які вам подобаються <br />
     про все інше ми подбаємо
   </div>
+
   <div class="arrow" (click)="moveToSuggested()">
     <ion-icon name="chevron-down-outline"></ion-icon>
   </div>
