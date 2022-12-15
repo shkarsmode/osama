@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private burgerRef!: ViewContainerRef;
     private componentRef!: ComponentRef<BurgerMenuComponent>;
     private subscriptions: Subscription[] = [];
+    private city!: string | null;
 
     public info?: IInfoCity | null;
     public img = 'https://osama.com.ua/wp-content/uploads/2021/12/IMG_7279111-2-scaled-1-2048x1195.jpg';
@@ -36,7 +37,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     public toggleBurgerMenu(): void {
         this.isOpenBurgerMenu = !this.isOpenBurgerMenu;
-        (this.isOpenBurgerMenu ? this.openBurgerMenu : this.closeBurgerMenu).call(this);
+        (this.isOpenBurgerMenu ? this.openBurgerMenu : this.closeBurgerMenu)
+            .call(this);
     }
 
     public moveToSuggested(): void {
@@ -48,18 +50,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     private subscribeOnSubjectCity(): void {
-        const sub = this.itemsService.citySubject.subscribe(this.determineCityForChanges.bind(this));
+        const sub = this.itemsService.citySubject
+            .subscribe(this.determineCityForChanges.bind(this));
+
         this.subscriptions.push(sub);
     }
 
     private determineCityForChanges(city: string | null): void {
-        if (city) this.getInfoByCity(city);
-        else this.clearInfo();
+        this.city = city;
+        (city ? this.getInfoByCity : this.clearInfo).call(this);
     }
 
-    private getInfoByCity(city: string): void {
-        const sub = this.itemsService.getInfoByCity(city)
+    private getInfoByCity(): void {
+        const sub = this.itemsService.getInfoByCity(this.city!)
             .subscribe((info: IInfoCity) => this.info = info);
+
         this.subscriptions.push(sub);
     }
 

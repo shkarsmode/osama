@@ -1,16 +1,16 @@
 <div class="wrap">
     <ng-template #cityWindowRef></ng-template>
+    
     <h2>{{ 'Пропонуємо тільки найкраще' | uppercase }}</h2>
+
     <div class="categories">
         <div 
             class="cat-item" 
             *ngFor="let item of suggestedCategories | async" 
             (click)="chooseTagWithCity(item.tag)">
             <button class="btn btn-warning">Обирай</button>
-            <!-- <h3>Дракони</h3> -->
             <img [src]="item.url" alt="">
         </div>
-
     </div>
 
     <h2>{{ 'Як зроботи замовлення?' | uppercase }}</h2>

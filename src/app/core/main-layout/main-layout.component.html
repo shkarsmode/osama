@@ -1,11 +1,13 @@
 <!-- * Header * -->
 <app-header 
-	(moveViewToItems)="moveViewToItems()">
-</app-header>
+	(moveViewToItems)="moveViewToItems()"
+></app-header>
 
 <!-- * Content * -->
 <div #suggestedBlock>
-	<router-outlet (activate)="scrollToTopSide($event)"></router-outlet>
+	<router-outlet 
+		(activate)="scrollToTopSide($event)"
+	></router-outlet>
 </div>
 
 <!-- * Footer * -->
