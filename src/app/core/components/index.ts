@@ -1,3 +1,4 @@
-export * from './header/header.component';
-export * from './footer/footer.component';
-export * from './greeting/greeting.component';
+export * from './header';
+export * from './footer';
+export * from './greeting';
+export * from './shopping';

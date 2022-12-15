@@ -43,6 +43,9 @@
       "@features/*": [
         "./src/app/features/*"
       ],
+      "@componets": [
+        "./src/app/core/components"
+      ],
       "@componets/*": [
         "./src/app/core/components/*"
       ],

@@ -4,15 +4,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import {
-  GreetingComponent,
-  FooterComponent,
-  HeaderComponent,
-} from './components';
+
 import { SharedModule } from '../shared/shared.module';
-import { ShoppingComponent } from './components/shopping/shopping.component';
-import { SocialComponent } from '@features/social/social.component';
-import { BurgerIconComponent } from '@features/burger-icon/burger-icon.component';
+import { BurgerIconComponent, SocialComponent } from '@features';
+import { 
+  FooterComponent, 
+  GreetingComponent, 
+  HeaderComponent, 
+  ShoppingComponent 
+} from '@componets';
 
 
 @NgModule({
