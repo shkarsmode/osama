@@ -6,7 +6,11 @@ import { CoreRoutingModule } from './core-routing.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { SharedModule } from '../shared/shared.module';
-import { BurgerIconComponent, SocialComponent } from '@features';
+import { 
+  BreadcrumbsComponent, 
+  BurgerIconComponent, 
+  SocialComponent 
+} from '@features';
 import { 
   FooterComponent, 
   GreetingComponent, 
@@ -23,7 +27,8 @@ import {
     GreetingComponent,
     ShoppingComponent,
     SocialComponent,
-    BurgerIconComponent
+    BurgerIconComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     CommonModule, 

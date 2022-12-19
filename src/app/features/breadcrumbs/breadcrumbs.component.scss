@@ -1,0 +1,22 @@
+.wrap {
+    display: flex;
+    column-gap: 15px;
+
+    span {
+        color: white;
+        transition: all .3s;
+        font-size: 12px;
+
+        &:hover {
+            color: #E83623;
+            cursor: pointer;
+        }
+
+        &:last-child {
+            &:hover {
+                color: white;
+                cursor: auto;
+            }
+        }
+    }
+}

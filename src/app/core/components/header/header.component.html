@@ -1,4 +1,10 @@
-<div class="wrap" [ngStyle]="{ 'background-image': 'url(' + (info?.img ?? img) + ')'}">
+<!-- * Greeting flow * -->
+
+<div 
+  class="wrap" 
+  *ngIf="!city; else withInfoBlock"
+>
+
   <ng-template #burgerRef></ng-template>
 
   <burger-icon 
@@ -11,16 +17,7 @@
     <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
   </div>
 
-  <app-social 
-    class="social"
-    *ngIf="info"
-    [info]="info"
-  ></app-social>
-
-  <h1 class="title" *ngIf="!info; else elseTitle">Найсмачніші суші <br /> у твоєму місті</h1>
-  <ng-template #elseTitle>
-    <h1 class="title">Доставка суші у місті {{ info?.city }}</h1>
-  </ng-template>
+  <h1 class="title">Найсмачніші суші <br /> у твоєму місті</h1>
   
   <div class="description">
     обирайте страви, які вам подобаються <br />
@@ -31,3 +28,38 @@
     <ion-icon name="chevron-down-outline"></ion-icon>
   </div>
 </div>
+
+<!-- * Flow with info * -->
+
+<ng-template #withInfoBlock>
+  <div 
+    class="wrap" 
+    [ngStyle]="{ 'background-image': 'url(' + info?.img + ')'}">
+
+    <ng-template #burgerRef></ng-template>
+
+    <burger-icon class="burger" (click)="toggleBurgerMenu()" [active]="isOpenBurgerMenu"></burger-icon>
+
+    <div class="logo" (click)="moveToGreetingComponent()">
+      <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
+    </div>
+
+    <app-social class="social" *ngIf="info" [info]="info"></app-social>
+
+    <h1 class="title">Доставка суші у місті {{ info?.city }}</h1>
+
+    <div class="description">
+      обирайте страви, які вам подобаються <br />
+      про все інше ми подбаємо
+    </div>
+
+    <app-breadcrumbs 
+      [city]='city'
+      [tag]='tag'
+    ></app-breadcrumbs>
+
+    <div class="arrow" (click)="moveToSuggested()">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+  </div>
+</ng-template>

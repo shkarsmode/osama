@@ -1,0 +1,18 @@
+<div class="wrap">
+    <span (click)="moveToMainPage()">Головна</span>
+
+    <span>/</span>
+
+    <span 
+        *ngIf="city" 
+        (click)="moveToShopInCurrentCity()"
+    >
+        Доставка суші {{ city }}
+    </span>
+
+    <span *ngIf="tag">/</span>
+
+    <span *ngIf="tag">
+        {{ tag | titlecase }}
+    </span>
+</div>

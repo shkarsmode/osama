@@ -7,7 +7,7 @@ import {
     EventEmitter, 
     OnDestroy 
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { BurgerMenuComponent } from '@features';
 import { IInfoCity } from '@interfaces';
@@ -29,7 +29,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private burgerRef!: ViewContainerRef;
     private componentRef!: ComponentRef<BurgerMenuComponent>;
     private subscriptions: Subscription[] = [];
-    private city!: string | null;
+    public city!: string | null;
+    public tag!: string | null;
 
     public info?: IInfoCity | null;
     public img = 'https://osama.com.ua/wp-content/uploads/2021/12/IMG_7279111-2-scaled-1-2048x1195.jpg';
@@ -38,11 +39,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     constructor(
         private router: Router,
+        private route: ActivatedRoute,
         private itemsService: ItemsService
     ) {}
 
     ngOnInit(): void { 
         this.subscribeOnSubjectCity();
+        this.determineTag();
     }
 
     public toggleBurgerMenu(): void {
@@ -57,18 +60,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     public moveToGreetingComponent(): void {
         this.router.navigate(['greeting']);
-    }
-
-    private subscribeOnSubjectCity(): void {
-        const sub = this.itemsService.citySubject
-            .subscribe(this.determineCityForChanges.bind(this));
-
-        this.subscriptions.push(sub);
-    }
-
-    private determineCityForChanges(city: string | null): void {
-        this.city = city;
-        (city ? this.getInfoByCity : this.clearInfo).call(this);
     }
 
     private getInfoByCity(): void {
@@ -89,6 +80,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     private clearInfo(): void {
         this.info = null;
+    }
+
+    private subscribeOnSubjectCity(): void {
+        const sub = this.itemsService.citySubject
+            .subscribe(this.determineCityForChanges.bind(this));
+
+        this.subscriptions.push(sub);
+    }
+
+    private determineCityForChanges(city: string | null): void {
+        this.city = city;
+        (city ? this.getInfoByCity : this.clearInfo).call(this);
+    }
+
+    private determineTag(): void {
+        const sub = this.route.queryParams
+            .subscribe((params: Params) => this.tag = params['tag']);
+
+        this.subscriptions.push(sub);
     }
 
     ngOnDestroy(): void {
