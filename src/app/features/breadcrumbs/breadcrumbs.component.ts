@@ -25,7 +25,5 @@ export class BreadcrumbsComponent implements OnInit {
         if (this.tag)
             this.router.navigate(['/shop', this.city]);
     }
-
-
-
+    
 }

@@ -9,7 +9,7 @@
             *ngFor="let item of suggestedCategories | async" 
             (click)="chooseTagWithCity(item.tag)">
             <button class="btn btn-warning">Обирай</button>
-            <img [src]="item.url" alt="">
+            <img *ngIf="item" [src]="item?.url" alt="">
         </div>
     </div>
 

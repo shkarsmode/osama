@@ -9,7 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { 
   BreadcrumbsComponent, 
   BurgerIconComponent, 
-  SocialComponent 
+  SocialComponent, 
+  SushiItemComponent
 } from '@features';
 import { 
   FooterComponent, 
@@ -28,7 +29,8 @@ import {
     ShoppingComponent,
     SocialComponent,
     BurgerIconComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    SushiItemComponent
   ],
   imports: [
     CommonModule, 

@@ -1,0 +1,25 @@
+<div class="item">
+    <div class="img">
+        <img [src]="item.img">
+    </div>
+
+    <h3>{{ item.name }}</h3>
+
+    <div class="old-price" *ngIf="item.oldPrice">
+        {{ item.oldPrice | number:'1.2' }} <span>грн.</span>
+    </div>
+
+    <div class="price">
+        {{ item.price | number:'1.2' }} <span>грн.</span>
+    </div>
+
+    <div class="weight">
+        {{ item.weight }} <span>г</span>
+    </div>
+
+    <div class="composition">
+        Склад: <span> {{ item.composition }} </span>
+    </div>
+
+    <button class="btn btn-outline-danger">Обираю!</button>
+</div>

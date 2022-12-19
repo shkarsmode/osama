@@ -40,6 +40,11 @@
 
     <burger-icon class="burger" (click)="toggleBurgerMenu()" [active]="isOpenBurgerMenu"></burger-icon>
 
+    <div class="contacts"> 
+      <div> {{ info?.number }} </div>
+      <div> {{ info?.gmail }} </div>
+    </div>
+
     <div class="logo" (click)="moveToGreetingComponent()">
       <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
     </div>

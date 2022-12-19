@@ -1,1 +1,25 @@
-<p>shopping works!</p>
+<div class="wrap">
+    <ng-template #cityWindowRef></ng-template>
+
+    <h2>{{ 'Пропонуємо тільки найкраще' | uppercase }}</h2>
+
+    <div class="categories">
+        <div 
+            class="cat-item"
+            *ngFor="let cat of (suggestedCategories | async); let i = index"
+            [ngClass]="{'active': isActiveCategory(cat.tag, i)}"
+            (click)="chooseCategory(cat.tag)"
+        >
+            {{ cat.name }}
+        </div>
+    </div>
+
+    <div class="wrap-sushi">
+        <app-sushi-item 
+            *ngFor="let item of sushi"
+            [item]='item'
+        ></app-sushi-item>
+    </div>
+
+    <h2>{{ 'Як зроботи замовлення?' | uppercase }}</h2>
+</div>

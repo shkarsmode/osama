@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable, Optional } from "@angular/core";
-import { ICategory, IInfoCity, DtoCategoryResponse } from "@interfaces";
+import { ICategory, IInfoCity, DtoCategoryResponse, ISushi, DtoSushiResponse } from "@interfaces";
 
-import { map, Observable, Subject } from "rxjs";
+import { catchError, map, Observable, Subject } from "rxjs";
 import { BASE_URL } from "src/environment/variables";
 
 
@@ -28,12 +28,25 @@ export class ItemsService {
                         ...response[id]    
                     }
                 })
-            }))
+            }));
     }
 
     getInfoByCity(city: string): Observable<IInfoCity> {
         return this.http.get<IInfoCity>(`${this.basePath}/cities/${city}.json`);
     }
 
+    getSushiByCategory(category: string): Observable<ISushi[]> {
+        return this.http.get<DtoSushiResponse[]>(`${this.basePath}/sushi/${category}.json`)
+            .pipe(map((response: any) => {
+                return Object.keys(response).map(id => {
+                    return {
+                        id,
+                        ...response[id]
+                    }
+                })
+            }),
+                error => error
+            );
+    }
 
 }
