@@ -1,9 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable, Optional } from "@angular/core";
-import { ICategory, IInfoCity, DtoCategoryResponse, ISushi, DtoSushiResponse } from "@interfaces";
-import { IShortProductInfo } from "@interfaces/IShortProductInfo";
+import { ICategory, IInfoCity, DtoCategoryResponse, ISushi, DtoSushiResponse, IShortProductInfo } from "@interfaces";
 
-import { BehaviorSubject, catchError, map, Observable, Subject, tap } from "rxjs";
+import { BehaviorSubject, map, Observable, Subject, tap } from "rxjs";
 import { BASE_URL } from "src/environment/variables";
 
 
@@ -22,13 +21,13 @@ export class ItemsService {
         this.basePath = (baseUrl ?? this.basePath);
     }
 
-    getSuggestedCategories(): Observable<ICategory[]> {     
+    getSuggestedCategories(): Observable<ICategory[]> {
         return this.http.get<DtoCategoryResponse[]>(`${this.basePath}/categories.json`)
             .pipe(map((response: any) => {
                 return Object.keys(response).map(id => {
                     return {
                         id,
-                        ...response[id]    
+                        ...response[id]
                     }
                 })
             }));
@@ -57,24 +56,24 @@ export class ItemsService {
             .pipe(
                 tap(this.recordProductInfo.bind(this)),
                 map((response: any) => {
-                if (response)
-                    return {
-                        id,
-                        ...response
-                    }
-                else return { result: 'notfound' }
-            }),
+                    if (response)
+                        return {
+                            id,
+                            ...response
+                        }
+                    else return { result: 'notfound' }
+                }),
                 error => error
             );
     }
 
     private recordProductInfo(info: DtoSushiResponse): void {
         this.sushiInfoForHeader = {
-            img: info.bigImg, 
+            img: info.bigImg,
             name: info.name,
             composition: info.composition
         };
-        
+
         this.shortInfoSubject.next(this.sushiInfoForHeader);
     }
 

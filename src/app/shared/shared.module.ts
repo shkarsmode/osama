@@ -5,6 +5,7 @@ import { ItemsService } from "./services/items.service";
 import { BASE_URL } from "src/environment/variables";
 import { environment } from "src/environment/environment";
 import { ChooseCityComponent } from "@features/choose-city/choose-city.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -12,11 +13,13 @@ import { ChooseCityComponent } from "@features/choose-city/choose-city.component
     ],
     imports: [
         IonicModule.forRoot(),
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
     exports: [
         IonicModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
     providers: [
         ItemsService,

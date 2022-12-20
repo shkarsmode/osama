@@ -1,0 +1,142 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 40px;
+    column-gap: 30px;
+
+    .info {
+        width: 50%;
+        transition: all .3s;
+    }
+
+    .img {
+        border: 2px solid rgb(224, 224, 224);
+        box-sizing: border-box;
+        width: 50%;
+        height: auto;
+        background-size: 0%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-color: white;
+        transition: background-position .6s, background-size 1s;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0);
+            background-size: 250%;
+
+            img {
+                opacity: 0;
+            }
+
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        transition: all .5s;
+        background-color: white;
+    }
+
+    .price {
+        margin-bottom: 50px;
+        font-size: 35px;
+        font-weight: 500;
+    }
+
+    .buy {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        .count {
+            display: flex;
+            align-items: center;
+
+            input {
+                text-align: center;
+                width: 60px;
+                height: 34px;
+                outline: none;
+                border: 1px solid rgba(151, 151, 151, 0.808);
+                margin: 0 5px;
+                font-weight: 600;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            }
+
+        }
+
+        button {
+            background-color: #de0000;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-radius: 0px;
+            border: unset;
+        }
+
+        ion-icon {
+            cursor: pointer;
+            color: #555;
+            transition: all .3s;
+
+        }
+
+        .operation-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 30px;
+            cursor: pointer;
+
+            &:hover {
+                ion-icon {
+                    color: #111;
+                }
+            }
+        }
+    }
+
+    hr {
+        height: 1px;
+        background-color: rgb(71, 71, 71);
+    }
+
+    .weight {
+        margin: 25px 0;
+        font-weight: 600;
+    }
+
+    .composition {
+        line-height: 25px;
+
+        span {
+            color: #c70000;
+            font-weight: 600;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .wrap {
+        flex-direction: column;
+
+        .img {
+            margin-bottom: 80px;
+            width: 100%;
+        }
+
+        .info {
+            width: 100%;
+        }
+    }
+
+
+}

@@ -5,17 +5,15 @@ import {
     ViewChild, 
     ViewContainerRef, 
     EventEmitter, 
-    OnDestroy, 
-    Type
+    OnDestroy
 } from '@angular/core';
-import { ActivatedRoute, Event, NavigationEnd, NavigationStart, Params, Router, Scroll } from '@angular/router';
+import { ActivatedRoute, Params, Router, Scroll } from '@angular/router';
 
 import { BurgerMenuComponent } from '@features';
-import { IInfoCity, ISushi } from '@interfaces';
-import { IShortProductInfo } from '@interfaces/IShortProductInfo';
+import { IInfoCity, ISushi, IShortProductInfo } from '@interfaces';
 import { ItemsService } from '@services';
 
-import { Subscription, filter, Subject, BehaviorSubject } from 'rxjs';
+import { Subscription, filter, BehaviorSubject } from 'rxjs';
 
 const enum Flow {
     'greeting',

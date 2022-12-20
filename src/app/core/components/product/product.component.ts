@@ -1,24 +1,28 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ISushi } from '@interfaces';
 import { ItemsService } from '@services';
-import { forkJoin, Observable, of, Subject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-product',
     templateUrl: './product.component.html',
     styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit, OnDestroy{
+export class ProductComponent implements OnInit, OnDestroy {
+
+    @ViewChild('backImg') backImg!: ElementRef;
 
     private id!: number;
     private category!: string;
     private subscriptions: Subscription[] = [];
     public item?: ISushi;
+    public countOfItem: number = 1;
 
     constructor(
         private itemService: ItemsService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private renderer: Renderer2
     ) { }
 
     /**
@@ -56,6 +60,27 @@ export class ProductComponent implements OnInit, OnDestroy{
         ).subscribe((item: ISushi) => {
             this.item = item;
         });
+    }
+
+    public moveBackgroundPicture(event: any): void {
+        const posX = event.offsetX;
+        const posY = event.offsetY;
+
+        const sizeX = this.backImg.nativeElement.clientWidth;
+        const sizeY = this.backImg.nativeElement.clientHeight;
+
+        const sizeXPer = 100 * posX / sizeX;
+        const sizeYPer = 100 * posY / sizeY;
+
+        this.renderer.setStyle(this.backImg.nativeElement, 'background-position', `${sizeXPer}% ${sizeYPer}%`);       
+    }
+
+    public incrementOfItemCount(): void {
+        this.countOfItem = this.countOfItem > 0 ? this.countOfItem + 1 : 1; 
+    }
+
+    public decrementOfItemCount(): void {
+        this.countOfItem = this.countOfItem <= 1 ? 1 : this.countOfItem - 1;
     }
 
     ngOnDestroy(): void {

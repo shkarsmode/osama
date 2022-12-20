@@ -1,2 +1,39 @@
-<p>product works!</p>
-{{ item | json }}
+<div class="wrap">
+    <div
+        #backImg
+        *ngIf="item?.bigImg"
+        class="img" 
+        (mousemove)='moveBackgroundPicture($event)'
+        [ngStyle]="{ 'background-image': 'url(' + item?.bigImg + ')'}"
+    >
+        <img *ngIf="item?.img" [src]="item?.img" alt="">
+    </div>
+
+    <div class="info">
+        <div class="price">{{ item?.price | number: '1.2'}} грн.</div>
+
+        <div class="buy">
+            <div class="count">
+                <div class="operation-block" (click)="decrementOfItemCount()">
+                    <ion-icon name="remove-circle-outline"></ion-icon>
+                </div>
+
+                <input type="number" value="1" min="1" [(ngModel)]="countOfItem">
+
+                <div class="operation-block" (click)="incrementOfItemCount()">
+                    <ion-icon name="add-circle-outline"></ion-icon>
+                </div>
+            </div>
+
+            <button class="btn btn-warning">Обираю!</button>
+        </div>
+
+        <hr />
+
+        <div class="weight"> Вага: {{ item?.weight }} г </div>
+
+        <div class="composition">
+            <span>Склад:</span> {{ item?.composition }}
+        </div>
+    </div>
+</div>

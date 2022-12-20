@@ -20,7 +20,6 @@ import { SushiItemComponent } from './features/sushi-item/sushi-item.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule,
     ReactiveFormsModule,
     CoreModule,
     SharedModule
