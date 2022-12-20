@@ -83,6 +83,13 @@
     line-height: 20px;
     letter-spacing: 2px;
     margin-bottom: 30px;
+    min-width: 200px;
+    padding: 0 100px;
+
+    span {
+      font-weight: 600;
+      color: white;
+    }
   }
 
   .arrow {

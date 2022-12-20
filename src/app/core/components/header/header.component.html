@@ -1,40 +1,42 @@
-<!-- * Greeting flow * -->
+<ng-container [ngSwitch]="flow">
 
-<div 
-  class="wrap" 
-  *ngIf="!city; else withInfoBlock"
->
+  <!-- * Greeting flow * -->
 
-  <ng-template #burgerRef></ng-template>
-
-  <burger-icon 
-    class="burger" 
-    (click)="toggleBurgerMenu()" 
-    [active]="isOpenBurgerMenu"
-  ></burger-icon>
-
-  <div class="logo" (click)="moveToGreetingComponent()">
-    <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
-  </div>
-
-  <h1 class="title">Найсмачніші суші <br /> у твоєму місті</h1>
-  
-  <div class="description">
-    обирайте страви, які вам подобаються <br />
-    про все інше ми подбаємо
-  </div>
-
-  <div class="arrow" (click)="moveToSuggested()">
-    <ion-icon name="chevron-down-outline"></ion-icon>
-  </div>
-</div>
-
-<!-- * Flow with info * -->
-
-<ng-template #withInfoBlock>
   <div 
+    *ngSwitchCase='0'
+    class="wrap"
+  >
+
+    <ng-template #burgerRef></ng-template>
+
+    <burger-icon 
+      class="burger" 
+      (click)="toggleBurgerMenu()" 
+      [active]="isOpenBurgerMenu"
+    ></burger-icon>
+
+    <div class="logo" (click)="moveToGreetingComponent()">
+      <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
+    </div>
+
+    <h1 class="title">Найсмачніші суші <br /> у твоєму місті</h1>
+    
+    <div class="description">
+      обирайте страви, які вам подобаються <br />
+      про все інше ми подбаємо
+    </div>
+
+    <div class="arrow" (click)="moveToSuggested()">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+  </div>
+
+  <!-- * Flow with info about city * -->
+
+  <div
+    *ngSwitchCase='1'
     class="wrap" 
-    [ngStyle]="{ 'background-image': 'url(' + info?.img + ')'}">
+    [ngStyle]="{ 'background-image': 'url(' + info?.img ?? img + ')'}">
 
     <ng-template #burgerRef></ng-template>
 
@@ -67,4 +69,32 @@
       <ion-icon name="chevron-down-outline"></ion-icon>
     </div>
   </div>
-</ng-template>
+
+  <!-- * Flow with info about sushi * -->
+
+  <div 
+    *ngSwitchCase='2'
+    class="wrap" 
+    [ngStyle]="{ 'background-image': 'url(' + productInfo?.img ?? img + ')'}"
+  >
+    <ng-template #burgerRef></ng-template>
+    
+    <burger-icon class="burger" (click)="toggleBurgerMenu()" [active]="isOpenBurgerMenu"></burger-icon>
+    
+    <div class="logo" (click)="moveToGreetingComponent()">
+      <img src="https://osama.com.ua/wp-content/uploads/2022/10/xlogo2.png.pagespeed.ic.4zmc_-7Jh5.png" alt="logo">
+    </div>
+    
+    <h1 class="title">{{ productInfo?.name }}</h1>
+    
+    <div class="description">
+      <span>Склад:</span>
+      {{ productInfo?.composition }}
+    </div>
+    
+    <div class="arrow" (click)="moveToSuggested()">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+  </div>
+
+</ng-container>

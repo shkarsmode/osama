@@ -18,6 +18,7 @@ import {
   HeaderComponent, 
   ShoppingComponent 
 } from '@componets';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {
     SocialComponent,
     BurgerIconComponent,
     BreadcrumbsComponent,
-    SushiItemComponent
+    SushiItemComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule, 

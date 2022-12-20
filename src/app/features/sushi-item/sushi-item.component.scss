@@ -7,11 +7,21 @@
     min-height: 200px;
     max-width: 230px;
     height: auto;
-    cursor: pointer;
+    transition: all .4s;
+    background-color: white;
+
+    &:hover {
+        border: 1px solid rgb(190, 190, 190);
+    }
 
     .img {
         display: flex;
         justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+            filter: grayscale(0.3);
+        }
 
         img {
             width: 141px;
@@ -22,15 +32,25 @@
         color: #444;
         text-align: left;
         margin-bottom: 45px;
+        cursor: pointer;
+
+        &:hover {
+            color: #666;
+        }
     }
 
     .price {
         font-weight: 500;
         font-size: 20px;
         margin-bottom: 15px;
+        cursor: pointer;
 
         span {
             font-size: 14px;
+        }
+
+        &:hover {
+            color: #555;
         }
     }
 
@@ -62,19 +82,25 @@
         font-weight: 600;
         font-size: 14px;
         margin-bottom: 20px;
+        cursor: pointer;
 
         span {
             font-size: 13px;
             font-weight: normal;
         }
     }
-    
+
     button {
         font-weight: 600;
         text-transform: uppercase;
     }
 }
 
+@media (min-width: 1000px) {
+    .item h3 {
+        font-size: 32px !important;
+    }
+}
 
 @media (max-width: 1200px) {
     .item {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ShoppingComponent } from '@componets/shopping/shopping.component';
-import { GreetingComponent } from './components/greeting/greeting.component';
+import { GreetingComponent, ProductComponent, ShoppingComponent } from '@componets';
+
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 const routes: Routes = [
@@ -9,6 +9,7 @@ const routes: Routes = [
         { path: '', redirectTo: '/greeting', pathMatch: 'full' },
         { path: 'greeting', component: GreetingComponent },
         { path: 'shop/:city', component: ShoppingComponent },
+        { path: 'product/:category/:id', component: ProductComponent },
         
         // {path: 'sumy', component: FooterComponent}
     ]},
