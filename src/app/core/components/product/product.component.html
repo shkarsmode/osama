@@ -25,7 +25,11 @@
                 </div>
             </div>
 
-            <button class="btn btn-warning">Обираю!</button>
+            <button 
+                class="btn btn-warning" 
+                (click)='addItemToCart()'
+                [disabled]='countOfItem < 1'    
+            >Обираю!</button>
         </div>
 
         <hr />

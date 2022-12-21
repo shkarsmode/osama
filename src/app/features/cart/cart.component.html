@@ -1,0 +1,19 @@
+<div class="wrap-icon" (click)='isOpenCart = true'>
+    <div class="counter">{{ counter }}</div>
+    <ion-icon name="basket"></ion-icon>
+</div>
+
+<div 
+    class="wrap-order" 
+    *ngIf="isOpenCart"
+    [@openCart]
+>
+    {{ itemsToBuy | json }}
+</div>
+
+<div 
+    class="backdrop" 
+    [@showShadow] 
+    *ngIf="isOpenCart"
+    (click)="isOpenCart = false"
+></div>

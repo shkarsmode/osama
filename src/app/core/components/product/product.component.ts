@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ISushi } from '@interfaces';
+import { ICartSushi, ISushi } from '@interfaces';
 import { ItemsService } from '@services';
+import { CartService } from '@services/cart.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,7 +23,8 @@ export class ProductComponent implements OnInit, OnDestroy {
     constructor(
         private itemService: ItemsService,
         private route: ActivatedRoute,
-        private renderer: Renderer2
+        private renderer: Renderer2,
+        private cartService: CartService
     ) { }
 
     /**
@@ -81,6 +83,20 @@ export class ProductComponent implements OnInit, OnDestroy {
 
     public decrementOfItemCount(): void {
         this.countOfItem = this.countOfItem <= 1 ? 1 : this.countOfItem - 1;
+    }
+
+    public addItemToCart(): void {
+        if (this.countOfItem < 1) return;
+        
+        const item: ICartSushi = {
+            id: this.item!.id,
+            name: this.item!.name,
+            price: this.item!.price,
+            img: this.item!.img,
+            category: this.category,
+            counter: this.countOfItem
+        }
+        this.cartService.addProductToCart(item);
     }
 
     ngOnDestroy(): void {

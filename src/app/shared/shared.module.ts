@@ -6,6 +6,8 @@ import { BASE_URL } from "src/environment/variables";
 import { environment } from "src/environment/environment";
 import { ChooseCityComponent } from "@features/choose-city/choose-city.component";
 import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -14,12 +16,14 @@ import { FormsModule } from "@angular/forms";
     imports: [
         IonicModule.forRoot(),
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        CommonModule
     ],
     exports: [
         IonicModule,
         HttpClientModule,
         FormsModule
+        // BrowserAnimationsModule
     ],
     providers: [
         ItemsService,

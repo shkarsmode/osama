@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { 
   BreadcrumbsComponent, 
   BurgerIconComponent, 
+  CartComponent, 
   SocialComponent, 
   SushiItemComponent
 } from '@features';
@@ -32,13 +33,14 @@ import { ProductComponent } from './components/product/product.component';
     BurgerIconComponent,
     BreadcrumbsComponent,
     SushiItemComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent
   ],
   imports: [
-    CommonModule, 
     NgbModule, 
     CoreRoutingModule, 
-    SharedModule
+    SharedModule,
+    CommonModule
   ],
   exports: [CoreRoutingModule],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],

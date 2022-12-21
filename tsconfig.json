@@ -31,6 +31,12 @@
       "@interfaces/*": [
         "./src/app/shared/interfaces/*"
       ],
+      "@animations": [
+        "./src/app/shared/animations"
+      ],
+      "@animations/*": [
+        "./src/app/shared/animations/*"
+      ],
       "@services": [
         "./src/app/shared/services"
       ],
