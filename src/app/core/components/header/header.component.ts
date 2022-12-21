@@ -127,7 +127,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     private updateFlowStatus(params: any): void {
         const url = params.routerEvent.url;
-        console.log('hello');
         
         if (url.includes('greeting')) this.flow = Flow.greeting;
         else if (url.includes('shop')) this.flow = Flow.shopping;

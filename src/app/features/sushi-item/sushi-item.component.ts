@@ -30,6 +30,8 @@ export class SushiItemComponent implements OnInit, OnDestroy {
 
     public addProductToCart(id: string): void {
         console.log('product card', id);
+        console.log('tag', this.tag);
+        
     }
 
     private getTagFromUrl(): void {
