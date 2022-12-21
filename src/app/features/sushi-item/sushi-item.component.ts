@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { ISushi } from '@interfaces';
+import { ICartSushi, ISushi } from '@interfaces';
+import { CartService } from '@services/cart.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,7 +18,8 @@ export class SushiItemComponent implements OnInit, OnDestroy {
 
     constructor(
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private cartService: CartService
     ) {}
 
     ngOnInit(): void {
@@ -28,9 +30,17 @@ export class SushiItemComponent implements OnInit, OnDestroy {
         this.router.navigate(['/product', this.tag ?? 'suggested', id]);
     }
 
-    public addProductToCart(id: string): void {
-        console.log('product card', id);
-        console.log('tag', this.tag);
+    public addProductToCart(): void {
+        const item: ICartSushi = {
+            id: this.item.id,
+            name: this.item.name,
+            price: this.item.price,
+            img: this.item.img,
+            category: this.tag!,
+            counter: 1
+        }
+
+        this.cartService.addProductToCart(item)
         
     }
 
