@@ -31,6 +31,12 @@
       "@interfaces/*": [
         "./src/app/shared/interfaces/*"
       ],
+      // "@admin": [
+      //   "./src/app/admin/components"
+      // ],
+      // "@admin/*": [
+      //   "./src/app/admin/components/*"
+      // ],
       "@animations": [
         "./src/app/shared/animations"
       ],
