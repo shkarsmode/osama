@@ -25,7 +25,7 @@ export class SushiItemComponent implements OnInit, OnDestroy {
     }
 
     public moveToProductPage(id: string): void {
-        this.router.navigate(['/product', this.tag, id]);
+        this.router.navigate(['/product', this.tag ?? 'suggested', id]);
     }
 
     public addProductToCart(id: string): void {

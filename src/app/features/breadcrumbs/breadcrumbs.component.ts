@@ -23,7 +23,11 @@ export class BreadcrumbsComponent implements OnInit {
 
     moveToShopInCurrentCity(): void {
         if (this.tag)
-            this.router.navigate(['/shop', this.city]);
+            this.router.navigate(['shop', this.city], {
+                queryParams: {
+                    tag: 'suggested'
+                }
+            });
     }
     
 }
