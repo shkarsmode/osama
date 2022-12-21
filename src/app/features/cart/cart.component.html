@@ -1,15 +1,66 @@
-<div class="wrap-icon" (click)='isOpenCart = true'>
+
+<!-- * Cart Icon * -->
+
+<div class="wrap-icon" (click)='openOrderPreview()'>
     <div class="counter">{{ counter }}</div>
     <ion-icon name="basket"></ion-icon>
 </div>
 
+<!-- * Order Flow * -->
+
 <div 
+    id='order'
     class="wrap-order" 
     *ngIf="isOpenCart"
     [@openCart]
 >
-    {{ itemsToBuy | json }}
+    <div class="header">
+        <span>Ваше замовлення</span>
+        <span (click)="isOpenCart = false">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+    </div>
+
+    <div class="wrap-items">
+        <div *ngIf="itemsToBuy.length < 1">Кошик порожній</div>
+        <cart-item 
+            *ngFor="let item of itemsToBuy" 
+            [item]="item"
+            (removeItem)='removeItemFromCart($event)'
+            (moveToProduct)='moveToProductPage($event)'
+        ></cart-item>
+    </div>
+
+    <div class="summary">
+        <div *ngIf="itemsToBuy.length > 0">
+            РАЗОМ: 
+            <span>{{ sumOfItems | number: '1.2' }}</span> 
+            <span>грн.</span>
+        </div>
+
+        <button 
+            class="btn btn-outline-info" 
+            (click)="isOpenCart = false"
+        >
+            Обрати ще суші
+        </button>
+        <button 
+            class="btn btn-outline-info" 
+            *ngIf="itemsToBuy.length > 0"
+        >
+            Перейти до кошику
+        </button>
+        <button 
+            class="btn btn-outline-info" 
+            *ngIf="itemsToBuy.length > 0"
+        >
+            Оформити замовлення
+        </button>
+    </div>
+
 </div>
+
+<!-- * BackDrop Shadow * -->
 
 <div 
     class="backdrop" 

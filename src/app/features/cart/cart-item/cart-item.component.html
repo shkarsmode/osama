@@ -1,0 +1,12 @@
+<div class="wrap">
+    <div class="img" (click)="moveToProductPage()">
+        <img *ngIf="item.img" [src]="item.img" alt="">
+    </div>
+    <div class="description">
+        <span (click)="moveToProductPage()">{{ item.name }}</span>
+        <span>{{ item.counter }} x {{ item.price | number:'1.2' }} <br /> = {{ sumOfmoney | number:'1.2' }} <span>грн.</span></span>
+    </div>
+    <div>
+        <ion-icon name="trash-outline" (click)='removeItemFromCart()'></ion-icon>
+    </div>
+</div>

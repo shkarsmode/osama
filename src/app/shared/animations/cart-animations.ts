@@ -18,7 +18,7 @@ export const showShadow = trigger('showShadow', [
         animate('.4s ease', style({ opacity: 1 })),
     ]),
     transition('* => void', [
-        style({ opacity: 1 }),
+        style({ opacity: 1, cursor: 'auto'}),
         animate('.4s ease', style({ opacity: 0 })),
     ]),
 ]);

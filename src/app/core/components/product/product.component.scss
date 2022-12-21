@@ -79,6 +79,14 @@
             font-weight: 500;
             border-radius: 0px;
             border: unset;
+
+            &:hover {
+                background-color: #f30101;
+            }
+
+            &:focus {
+                background-color: #af0000;
+            }
         }
 
         ion-icon {

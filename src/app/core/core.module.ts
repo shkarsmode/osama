@@ -10,6 +10,7 @@ import {
   BreadcrumbsComponent, 
   BurgerIconComponent, 
   CartComponent, 
+  CartItemComponent, 
   SocialComponent, 
   SushiItemComponent
 } from '@features';
@@ -34,7 +35,8 @@ import { ProductComponent } from './components/product/product.component';
     BreadcrumbsComponent,
     SushiItemComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     NgbModule, 

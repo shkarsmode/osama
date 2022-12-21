@@ -7,7 +7,7 @@ import {
     EventEmitter, 
     OnDestroy
 } from '@angular/core';
-import { ActivatedRoute, Params, Router, Scroll } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Params, Router, Scroll } from '@angular/router';
 
 import { BurgerMenuComponent } from '@features';
 import { IInfoCity, ISushi, IShortProductInfo } from '@interfaces';
@@ -119,14 +119,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     private listenParamsToUpdateStatusOfFlow(): void {
         const sub = this.router.events
-            .pipe(filter(event => event instanceof Scroll))
+            .pipe(filter(event => event instanceof Scroll ))
             .subscribe(this.updateFlowStatus.bind(this));
 
         this.subscriptions.push(sub);
     }
 
     private updateFlowStatus(params: any): void {
-        const url = params.routerEvent.url;
+        const url = params.routerEvent.urlAfterRedirects;
+        console.log(url);
         
         if (url.includes('greeting')) this.flow = Flow.greeting;
         else if (url.includes('shop')) this.flow = Flow.shopping;

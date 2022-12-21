@@ -40,9 +40,15 @@ export class CartService {
         this.setItemsInLocalStorage();
     }
 
-    // public get counterOfItems(): number {
-    //     return this.counterOfItemsByType;
-    // }
+    public removeProductFromCart(item: ICartSushi): void {
+        this.itemsToBuy = this.itemsToBuy.filter(sushi => sushi.name != item.name);
+
+        this.gettingItemsSubject$.next(this.itemsToBuy);
+        this.countItemsByType();
+        this.setItemsInLocalStorage();
+    }
+
+
 
     private countItemsByType(): void {
         this.counterOfItemsByType = this.itemsToBuy.length;

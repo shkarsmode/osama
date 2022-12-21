@@ -1,0 +1,65 @@
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(216, 216, 216, 0.575);
+    margin-bottom: 20px;
+    padding: 0 20px;
+    padding-bottom: 20px;
+
+    .img {
+        width: 85px;
+        cursor: pointer;
+
+        img {
+            width: 100%
+        }
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 10px;
+        margin-right: 10px;
+        width: 140px;
+
+        span:first-child {
+            font-size: 14px;
+            font-weight: 600;
+            transition: all .4s;
+            cursor: pointer;
+
+            &:hover {
+                color: #de0000;
+            }
+        }
+
+        span:last-child {
+            font-size: 14px;
+            line-height: 17px;
+
+            span {
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    div:last-child {
+        display: flex;
+
+        ion-icon {
+            color: #333;
+            transition: all .3s;
+            cursor: pointer;
+
+            &:hover {
+                color: #de0000;
+                transform: scale(1.1);
+
+            }
+
+        }
+
+    }
+}
