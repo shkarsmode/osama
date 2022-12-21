@@ -11,7 +11,9 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgb(39 39 39 / 85%);
+  // background-color: rgb(39 39 39 / 85%);
+  background-color: rgb(129, 129, 129);
+  animation: animBackground 1.5s forwards;
 
   transition: height .5s;
 
@@ -139,6 +141,20 @@
 
   100% {
     outline: 0px solid rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes animBackground {
+  0% {
+    background-color: rgb(129, 129, 129);
+  }
+
+  40% {
+    background-color: rgb(129, 129, 129);
+  }
+
+  100% {
+    background-color: rgb(39 39 39 / 85%);
   }
 }
 
