@@ -5,24 +5,32 @@ import { ItemsService } from "./services/items.service";
 import { BASE_URL, IDENTITY_URL } from "src/environment/variables";
 import { environment } from "src/environment/environment";
 import { ChooseCityComponent } from "@features/choose-city/choose-city.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { SushiItemComponent } from "@features";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
     declarations: [
-        ChooseCityComponent
+        ChooseCityComponent,
+        SushiItemComponent
     ],
     imports: [
         IonicModule.forRoot(),
         HttpClientModule,
         FormsModule,
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule,
+        MatSnackBarModule
     ],
     exports: [
         IonicModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule,
+        SushiItemComponent,
+        MatSnackBarModule
     ],
     providers: [
         ItemsService,

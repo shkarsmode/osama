@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/admin', 'main']">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Add new sushi</a>
+                </li>
+                <li class="nav-item" (click)='logout()'>
+                    <a class="nav-link">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<form class="wrap-create" [formGroup]='sushiForm' (ngSubmit)='submitForm()'>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Сет 'Осама'" aria-label="Сет 'Осама'"
+            aria-describedby="basic-addon1" formControlName='name'>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Img url" aria-label="Img url" formControlName='img'
+            aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">450x450.jpg</span>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Big Img url" aria-label="Img url" aria-describedby="basic-addon2" 
+            formControlName='bigImg'
+        >
+        <span class="input-group-text" id="basic-addon2">2850x1890.jpg</span>
+    </div>
+
+    <label for="basic-url" class="form-label">Your category</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3">https://angular-blog.com/</span>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName='category'>
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Price $</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName='price'>
+        <span class="input-group-text">.00</span>
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Old price $</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName='oldPrice'>
+        <span class="input-group-text">.00</span>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="700" aria-label="700" formControlName='weight'>
+        <span class="input-group-text">Грамм</span>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">Composition</span>
+        <textarea class="form-control" aria-label="With textarea" formControlName='composition'></textarea>
+    </div>
+
+    <div  class="input-group mt-3">
+        <button class="btn btn-outline-primary w-100" type="submit" [disabled]='sushiForm.invalid'>Create</button>
+    </div>
+</form>
+
+<!-- https://osama.com.ua/wp-content/uploads/2020/11/Set-Osama-450x450.jpg -->
+
+<!-- https://osama.com.ua/wp-content/uploads/2020/11/Set-Osama.jpg -->

@@ -40,7 +40,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
     private getIdOfProductFromUrl(): void {
         const sub = this.route.params.subscribe(params => {
-            this.id = Number.parseInt(params['id']);
+            this.id = params['id'];
             this.category = params['category'];
 
             this.getProductById();

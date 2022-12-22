@@ -1,0 +1,31 @@
+.wrap-list {
+    display: flex;
+    justify-content: center;
+
+    ol {
+        width: 90%;
+    }
+}
+
+li {
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+
+        background-color: rgba(211, 211, 211, 0.267);
+    }
+
+}
+
+.sushi-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    margin-top: 20px;
+    padding: 0 20px;
+
+    app-sushi-item {
+        pointer-events: none;
+    }
+}

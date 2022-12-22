@@ -33,7 +33,6 @@ import { ProductComponent } from './components/product/product.component';
     SocialComponent,
     BurgerIconComponent,
     BreadcrumbsComponent,
-    SushiItemComponent,
     ProductComponent,
     CartComponent,
     CartItemComponent

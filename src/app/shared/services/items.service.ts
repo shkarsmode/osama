@@ -21,6 +21,25 @@ export class ItemsService {
         this.basePath = (baseUrl ?? this.basePath);
     }
 
+    createNewSushi(item: any, category: string): Observable<any> {
+        return this.http.post<any>(`${this.basePath}/sushi/${category}.json`, item)
+            .pipe(map((response: any) => {
+                return response;
+            }));
+    }
+
+    getAllSushi(): Observable<any> {
+        return this.http.get<any>(`${this.basePath}/sushi.json`)
+            .pipe(map((response: any) => {
+                return Object.keys(response).map(name => {
+                    return {
+                        name,
+                        ...response[name]
+                    }
+                })
+            }));
+    }
+
     getSuggestedCategories(): Observable<ICategory[]> {
         return this.http.get<DtoCategoryResponse[]>(`${this.basePath}/categories.json`)
             .pipe(map((response: any) => {

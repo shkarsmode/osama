@@ -1,1 +1,46 @@
-<p>admin works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/admin', 'create']">Add new sushi</a>
+                </li>
+                <li class="nav-item" (click)='logout()'>
+                    <a class="nav-link">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="wrap-list mt-3">
+    <ol class="list-group list-group-numbered">
+        <li 
+            class="list-group-item d-flex justify-content-between align-items-start" 
+            *ngFor="let item of categories"
+            (click)='getSushiByCategory(item.name)'
+            [ngClass]="{'active': item.name == activeCategory}"
+        >
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ item.name}}</div>
+                <!-- Cras justo odio -->
+            </div>
+            <span class="badge bg-primary rounded-pill">{{ item.count }}</span>
+        </li>
+    </ol>
+</div>
+
+<div class="sushi-list">
+    <div *ngFor="let item of items">
+        <app-sushi-item [item]='item'></app-sushi-item>
+    </div>
+</div>
+

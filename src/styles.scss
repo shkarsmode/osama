@@ -3,6 +3,7 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 @import './reset';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 body {
     position: relative !important;
@@ -21,7 +22,12 @@ body::-webkit-scrollbar-thumb {
     // outline: 1px solid slategrey;
 }
 
+.mat-snack-bar-container {
+    background: transparent;
+} 
+
 @media (min-width: 980px) {
+
     h1,
     h2,
     h3,

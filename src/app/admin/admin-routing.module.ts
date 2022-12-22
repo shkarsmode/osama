@@ -5,6 +5,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 ;
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './helpers/auth.guard';
+import { CreateSushiComponent } from './components/create-sushi/create-sushi.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
         { path: '', redirectTo: '/admin/main', pathMatch: 'full' },
         { path: 'login', component: LoginComponent },
         { path: 'main', component: AdminComponent, canActivate: [AuthGuard] },
+        { path: 'create', component: CreateSushiComponent, canActivate: [AuthGuard] },
     ]},
     { path: '**', redirectTo: '/admin' }
 ];
