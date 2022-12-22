@@ -12,6 +12,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './admin/helpers/auth.interceptor';
+import { HowToOrderComponent } from './features/how-to-order/how-to-order.component';
 
 
 const INTERCEPTOR_PROVIDER: Provider = {

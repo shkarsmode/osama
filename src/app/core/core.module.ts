@@ -11,8 +11,7 @@ import {
   BurgerIconComponent, 
   CartComponent, 
   CartItemComponent, 
-  SocialComponent, 
-  SushiItemComponent
+  SocialComponent,
 } from '@features';
 import { 
   FooterComponent, 
@@ -21,6 +20,7 @@ import {
   ShoppingComponent 
 } from '@componets';
 import { ProductComponent } from './components/product/product.component';
+import { HowToOrderComponent } from '@features/how-to-order/how-to-order.component';
 
 
 @NgModule({
@@ -35,7 +35,8 @@ import { ProductComponent } from './components/product/product.component';
     BreadcrumbsComponent,
     ProductComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    HowToOrderComponent
   ],
   imports: [
     NgbModule, 

@@ -1,0 +1,105 @@
+:host {
+    width: 90%;
+
+    position: relative;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 37px;
+        margin-bottom: 30px;
+    }
+
+    .wrap-imges {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 60px;
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 90px;
+                height: 90px;
+                margin-bottom: 8px;
+            }
+
+            span {
+                font-weight: 600;
+                font-size: 14px;
+                text-align: center;
+                max-width: 150px;
+                line-height: 18px;
+            }
+        }
+    }
+}
+
+.wrap-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://osama.com.ua/images/xpriloz-fon3.jpg.pagespeed.ic.F4cV-s6rvw.webp);
+    background-repeat: no-repeat;
+    background-size: 300%;
+    width: 99.3vw;
+    height: 717px;
+    transition: all .4s;
+
+    >img {
+        height: 520px;
+        margin-right: 20px;
+    }
+
+    >div {
+
+        span {
+            font-size: 28px;
+            color: white;
+            max-width: 400px;
+            font-weight: 600;
+            // margin-bottom: 20px;
+        }
+
+        >div {
+            margin-top: 20px;
+
+            img {
+                height: 35px;
+
+                &:first-child {
+                    margin-right: 10px;
+                }
+            }
+
+        }
+
+    }
+}
+
+@media (max-width: 750px) {
+    .wrap .wrap-imges {
+        max-width: 440px;
+    }
+
+    .wrap-app {
+        height: 590px;
+
+        > div span {
+            font-size: 18px;
+        }
+
+        img {
+            height: 320px;
+        }
+    }
+}
